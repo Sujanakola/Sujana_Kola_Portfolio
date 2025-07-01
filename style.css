@@ -140,7 +140,7 @@ h3 {
     justify-content: center;
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(135deg, #f6f7ff 0%, #f0f4ff 100%);
+    background: linear-gradient(135deg, #f6f7ff 0%, #e0e7fa 100%);
 }
 
 .hero h2 {
@@ -294,13 +294,21 @@ h3 {
 }
 
 .experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .experience-grid {
+        column-count: 1;
+    }
 }
 
 .experience-card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2rem;
+    break-inside: avoid;
     background: var(--bg-surface);
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -318,8 +326,15 @@ h3 {
 
 .experience-card h3 {
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-size: 1.25rem;
+    color: #fff;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border-radius: 2em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 8px rgba(92, 106, 196, 0.10);
 }
 
 .experience-card .company {
@@ -375,7 +390,7 @@ h3 {
 /* About Section */
 .about {
     padding: 6rem 0;
-    background-color: var(--bg-light);
+    background-color: var(--bg-surface);
 }
 
 .about-content {
@@ -414,11 +429,15 @@ h3 {
 .achievements-list li {
     background: var(--bg-surface);
     border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(92, 106, 196, 0.06);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
     padding: 1.5rem 1.5rem 1.25rem 1.5rem;
     position: relative;
     font-size: 1rem;
     color: var(--text-dark);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .achievements-list li i.fas {
@@ -569,7 +588,7 @@ textarea {
     }
 
     .hero {
-        background: linear-gradient(135deg, #1a1c2c 0%, #1f2937 100%);
+        background: linear-gradient(135deg, #23243a 0%, #1A1A1D 100%);
     }
 
     .btn-secondary {
@@ -581,6 +600,44 @@ textarea {
         background-color: var(--text-light);
         color: var(--bg-dark);
     }
+
+    .achievement-subtitle {
+        color: #4fd1c5;
+    }
+    .achievement-subtitle:contains('Handwritten Character Recognition Using Deep LSTM Approach') {
+        color: #f6ad55;
+    }
+
+    .highlight-dlstm {
+        color: #f6ad55 !important;
+    }
+
+    .achievement-link {
+        color: #63b3ed !important;
+        text-decoration: underline;
+    }
+
+    body.dark-theme,
+    .dark-theme .about,
+    .dark-theme .skills,
+    .dark-theme .experience,
+    .dark-theme .projects,
+    .dark-theme .achievements-section,
+    .dark-theme .contact {
+        background: linear-gradient(135deg, #23243a 0%, #1A1A1D 100%) !important;
+    }
+
+    .experience-card {
+        background: rgba(255, 255, 255, 0.14) !important;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    }
+}
+
+body.dark-theme {
+    background: linear-gradient(135deg, #23243a 0%, #1A1A1D 100%) !important;
 }
 
 hr,
@@ -728,8 +785,8 @@ body.dark-theme .moon-icon {
 }
 
 .about-photo {
-    width: 130px;
-    height: 130px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 4px 16px rgba(92, 106, 196, 0.10);
@@ -823,8 +880,8 @@ body.dark-theme .moon-icon {
     }
 
     .about-photo {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 }
 
@@ -967,9 +1024,26 @@ body.dark-theme .navbar-logo {
         gap: 0.5rem;
         padding: 0 1rem;
     }
-
     .navbar-links {
-        gap: 0.7rem;
+        display: none;
+        flex-direction: column;
+        background: var(--bg-surface);
+        position: absolute;
+        top: 3.5rem;
+        right: 1rem;
+        width: 70vw;
+        max-width: 320px;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 1.2rem 0.5rem;
+        z-index: 1200;
+    }
+    .navbar-links.active {
+        display: flex;
+    }
+    .navbar-logo {
+        font-size: 1.1rem;
+        padding: 6px 10px;
     }
 }
 
@@ -1050,4 +1124,166 @@ body.dark-theme .navbar-logo {
 
 #achievements {
     scroll-margin-top: 80px;
+}
+
+.achievements-section {
+    margin-bottom: 3rem;
+}
+
+.achievements-list li:last-child {
+    margin-bottom: 2.5rem;
+}
+
+.dark-theme .about,
+.dark-theme .contact,
+.dark-theme .skills,
+.dark-theme .experience,
+.dark-theme .projects,
+.dark-theme .achievements-section {
+    background: transparent !important;
+}
+
+.experience-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1.2rem;
+    background: transparent;
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+.experience-table th, .experience-table td {
+    padding: 1.1rem 1rem;
+    background: var(--bg-surface);
+    border-radius: 1rem;
+    vertical-align: top;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(92, 106, 196, 0.08);
+}
+.experience-table th {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    border-bottom: none;
+}
+.experience-table ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+.exp-tech {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 1em;
+    padding: 0.25em 0.9em;
+    font-size: 0.95em;
+    margin: 0.1em 0.2em 0.1em 0;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+body.dark-theme .navbar {
+    background: linear-gradient(90deg, #5C6AC4 0%, #23243a 100%) !important;
+}
+
+@media (max-width: 900px) {
+    .experience-grid {
+        column-count: 1;
+        padding: 0 0.5rem;
+    }
+    .about-two-col {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .about-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .skills-grid, .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+    .project-card, .skill-card, .experience-card, .achievements-list li {
+        padding: 1rem 0.5rem;
+        font-size: 0.97rem;
+    }
+    .about-photo {
+        width: 90px;
+        height: 90px;
+    }
+    .experience-table th, .experience-table td {
+        padding: 0.7rem 0.3rem;
+        font-size: 0.95rem;
+    }
+    .experience-table th {
+        font-size: 0.98rem;
+    }
+    .exp-tech {
+        font-size: 0.85em;
+        padding: 0.18em 0.6em;
+    }
+}
+
+/* Hamburger styles */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1201;
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+}
+
+.navbar-toggle .bar {
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+@media (max-width: 700px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-surface);
+        position: absolute;
+        top: 3.5rem;
+        right: 1rem;
+        width: 70vw;
+        max-width: 320px;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        padding: 1.2rem 0.5rem;
+        z-index: 1200;
+    }
+    .navbar-links.active {
+        display: flex;
+    }
+    .navbar-toggle {
+        display: flex;
+    }
 }

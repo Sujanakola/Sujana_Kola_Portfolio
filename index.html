@@ -12,7 +12,7 @@
 
 <body>
     <button id="theme-toggle" aria-label="Toggle light/dark mode"
-        style="position: fixed; top: 4.5rem; right: 2rem; z-index: 1000; background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+        style="position: fixed; top: 0.5rem; left: 2rem; z-index: 1201; background: none; border: none; font-size: 1.5rem; cursor: pointer;">
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"
             fill="none" stroke="#FFD600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5" />
@@ -31,6 +31,11 @@
         </svg>
     </button>
     <nav class="navbar">
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
         <div class="container navbar-container">
             <a href="#" class="navbar-logo">Sujana Kola</a>
             <ul class="navbar-links">
@@ -201,10 +206,8 @@
                 <li data-aos="fade-up">
                     <i class="fas fa-file-alt"></i>
                     <strong>Published Research Paper – SoCPaR 2022</strong>
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-27524-1_13" target="_blank"
-                        style="margin-left:8px;font-size:0.95em;">[Published Paper]</a><br>
-                    <span class="achievement-subtitle">"Handwritten Character Recognition Using Deep LSTM
-                        Approach"</span><br>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-27524-1_13" target="_blank" class="achievement-link">[Published Paper]</a><br>
+                    <span class="achievement-subtitle highlight-dlstm">Handwritten Character Recognition Using Deep LSTM Approach</span><br>
                     Presented at the 14th International Conference on Soft Computing and Pattern Recognition. Proposed a
                     deep LSTM-based model to improve handwritten character classification accuracy.<br>
                     <span class="achievement-meta">
@@ -216,8 +219,7 @@
 
                 <li data-aos="fade-up">
                     <i class="fas fa-award"></i>
-                    <strong>HackX Hackathon – Winner</strong> <a href="SUJANA KOLA-HACKX.pdf" target="_blank"
-                        style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
+                    <strong>HackX Hackathon – Winner</strong> <a href="SUJANA KOLA-HACKX.pdf" target="_blank" class="achievement-link" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
                     Won 1st place in a 24-hour national-level hackathon among 200+ teams. Built an end-to-end product
                     with real-time features, recognized for innovation and problem-solving.<br>
                     <span class="achievement-meta">
@@ -228,8 +230,7 @@
                 </li>
                 <li data-aos="fade-up">
                     <i class="fas fa-graduation-cap"></i>
-                    <strong>Merit Scholarship – VIT University</strong> <a href="merit scholarship.pdf" target="_blank"
-                        style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
+                    <strong>Merit Scholarship – VIT University</strong> <a href="merit scholarship.pdf" target="_blank" class="achievement-link" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
                     Received university merit scholarship for academic excellence during the 2020–21 academic year.<br>
                     <span class="achievement-meta">
                         <i class="fas fa-book"></i> M.Tech Integrated – Software Engineering &nbsp;|&nbsp;
@@ -238,9 +239,7 @@
                 </li>
                 <li data-aos="fade-up">
                     <i class="fas fa-cloud"></i>
-                    <strong>AWS Certified Cloud Practitioner</strong> <a
-                        href="AWS Certified Cloud Practitioner certificate.pdf" target="_blank"
-                        style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
+                    <strong>AWS Certified Cloud Practitioner</strong> <a href="AWS Certified Cloud Practitioner certificate.pdf" target="_blank" class="achievement-link" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
                     Credential earned from Amazon Web Services, demonstrating foundational understanding of cloud
                     concepts, billing, and AWS architecture.<br>
                     <span class="achievement-meta">
@@ -251,9 +250,7 @@
                 </li>
                 <li data-aos="fade-up">
                     <i class="fas fa-code"></i>
-                    <strong>Coursera Python for Everybody Specialization</strong> <a
-                        href="Coursera_Python_Certificate.pdf" target="_blank"
-                        style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
+                    <strong>Coursera Python for Everybody Specialization</strong> <a href="Coursera_Python_Certificate.pdf" target="_blank" class="achievement-link" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
                     Completed the full Coursera specialization, covering Python programming, data structures, web
                     access, and databases. Gained hands-on experience with real-world projects and assignments.<br>
                     <span class="achievement-meta">
@@ -262,8 +259,7 @@
                 </li>
                 <li data-aos="fade-up">
                     <i class="fas fa-laptop-code"></i>
-                    <strong>Coursera Web Development Course</strong> <a href="Coursera_Web_Dev_Certificate.pdf"
-                        target="_blank" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
+                    <strong>Coursera Web Development Course</strong> <a href="Coursera_Web_Dev_Certificate.pdf" target="_blank" class="achievement-link" style="margin-left:8px;font-size:0.95em;">[Certificate]</a><br>
                     Completed Coursera's web development course, learning HTML, CSS, JavaScript, and responsive design.
                     Built and deployed several web projects as part of the curriculum.<br>
                     <span class="achievement-meta">
@@ -280,7 +276,7 @@
         <div class="container">
             <h2 data-aos="fade-up">Get In Touch</h2>
             <div class="contact-content" data-aos="fade-up">
-                <form id="contact-form" class="contact-form">
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkgbyrar" method="POST">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -292,6 +288,12 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
+                <div id="contact-success" style="display:none; margin-top:1.5rem; color: #28a745; font-size:1.2rem; text-align:center;">
+                    <i class="fas fa-paper-plane" style="font-size:2rem; color:#5C6AC4;"></i><br>
+                    <strong>Thank you for reaching out!</strong><br>
+                    Your message has been sent successfully. I appreciate your interest and will get back to you as soon as possible.<br>
+                    Have a wonderful day! 🌟
+                </div>
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>

@@ -60,22 +60,13 @@ const projects = [
         githubLink: "https://github.com/Sujanakola/Expense_Tracker"
     },
     {
-        title: "Weather Dashboard",
-        role: "Developer",
-        description: "A weather application that displays current weather conditions and forecasts using multiple weather APIs. Features location-based weather, historical data, and interactive maps.",
-        technologies: ["JavaScript", "Weather APIs", "Chart.js", "Geolocation", "Responsive Design"],
-        image: "images/weather.jpg",
-        demoLink: "#",
-        githubLink: "#"
-    },
-    {
         title: "Portfolio Website",
         role: "Full Stack Developer",
         description: "A modern, responsive portfolio website showcasing projects and skills. Features smooth animations, contact form, and optimized performance for all devices.",
         technologies: ["HTML", "CSS", "JavaScript", "AOS Library", "Responsive Design", "SEO"],
         image: "images/portfolio.jpg",
-        demoLink: "#",
-        githubLink: "#"
+        demoLink: "https://sujanakola.github.io/Sujana_Kola_Portfolio/",
+        githubLink: "https://github.com/Sujanakola/Sujana_Kola_Portfolio"
     }
 ];
 
@@ -171,7 +162,7 @@ function populateProjects() {
     });
 }
 
-// Populate Experience Cards
+// Populate Experience
 function populateExperience() {
     const grid = document.querySelector('.experience-grid');
     grid.innerHTML = '';
@@ -198,27 +189,6 @@ function populateExperience() {
         grid.appendChild(card);
     });
 }
-
-// Handle Contact Form
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Get form data
-    const formData = {
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value
-    };
-
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', formData);
-
-    // Show success message
-    alert('Thank you for your message! I will get back to you soon.');
-
-    // Reset form
-    this.reset();
-});
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -320,4 +290,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const current = document.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
         setTheme(current === 'dark-theme' ? 'light-theme' : 'dark-theme');
     });
+
+    // Hamburger menu toggle
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarLinks = document.querySelector('.navbar-links');
+    if (navbarToggle && navbarLinks) {
+      navbarToggle.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active');
+      });
+    }
+
+    // Custom success message for contact form
+    const contactForm = document.getElementById('contact-form');
+    const contactSuccess = document.getElementById('contact-success');
+    if (contactForm && contactSuccess) {
+        contactForm.addEventListener('submit', function (e) {
+            // Let the form submit normally, but intercept the response
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    contactForm.style.display = 'none';
+                    contactSuccess.style.display = 'block';
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        alert(data.error || 'Oops! There was a problem submitting your form.');
+                    });
+                }
+            }).catch(() => {
+                alert('Oops! There was a problem submitting your form.');
+            });
+        });
+    }
 }); 
