@@ -63,7 +63,7 @@ const projects = [
         title: "Portfolio Website",
         role: "Full Stack Developer",
         description: "A modern, responsive portfolio website showcasing projects and skills. Features smooth animations, contact form, and optimized performance for all devices.",
-        technologies: ["HTML", "CSS", "JavaScript", "AOS Library", "Responsive Design", "SEO"],
+        technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
         image: "images/portfolio.jpg",
         demoLink: "https://sujanakola.github.io/Sujana_Kola_Portfolio/",
         githubLink: "https://github.com/Sujanakola/Sujana_Kola_Portfolio"
