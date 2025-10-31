@@ -294,13 +294,14 @@ h3 {
 }
 
 .experience-grid {
-    column-count: 2;
-    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 @media (max-width: 900px) {
     .experience-grid {
-        column-count: 1;
+        grid-template-columns: 1fr;
     }
 }
 

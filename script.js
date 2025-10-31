@@ -73,6 +73,18 @@ const projects = [
 // Experience Data
 const experiences = [
     {
+        title: "Software Engineer",
+        company: "Capgemini",
+        period: "Aug 2025 – Present",
+        location: "Bangalore",
+        description: [
+            "Developed and customized SAP UI5/Fiori applications to automate and streamline critical business workflows, significantly enhancing process efficiency and boosting end-user productivity across multiple business functions. Collaborated closely with functional consultants and business stakeholders to translate requirements into intuitive, high-performing UI solutions.",
+            "Integrated SAP UI5 applications with OData services and CDS views, enabling real-time data access and ensuring smooth communication between frontend and backend systems. Implemented data binding, filtering, and dynamic service calls to improve accuracy and responsiveness of business transactions.",
+            "Enhanced user experience and scalability by designing responsive, component-based UIs following SAP Fiori design guidelines. Developed reusable UI elements and custom controls, reducing overall development effort and maintenance time while ensuring a consistent, modern interface across devices."
+        ],
+        techStack: ["SAP UI5", "SAP Fiori", "SAP OData", "SAP CDS", "SAP ABAP"]
+    },
+    {
         title: "Student Technical Intern",
         company: "NXP Semiconductors",
         period: "Aug 2024 – June 2025",
